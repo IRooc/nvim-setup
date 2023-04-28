@@ -19,8 +19,12 @@ cmp.setup({
 
 
 
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+lsp.on_attach(function(client, bufnr)  
+  local opts = {buffer = bufnr, remap = false}
+  
+  lsp.default_keymaps(opts)  
+
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 -- (Optional) Configure lua language server for neovim
