@@ -138,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-ripgrep"] = {
+    loaded = true,
+    path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-ripgrep",
+    url = "https://github.com/rluba/vim-ripgrep"
   }
 }
 
