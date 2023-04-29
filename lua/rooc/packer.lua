@@ -9,6 +9,8 @@ return require('packer').startup(function(use)
 
   use 'rluba/vim-ripgrep'
 
+  use 'Yohannfra/Nvim-Switch-Buffer'
+
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  -- or                            , branch = '0.1.x',
@@ -60,4 +62,3 @@ return require('packer').startup(function(use)
   }
   --]===]
 end)
-

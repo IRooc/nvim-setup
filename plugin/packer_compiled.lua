@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["Nvim-Switch-Buffer"] = {
+    loaded = true,
+    path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Nvim-Switch-Buffer",
+    url = "https://github.com/Yohannfra/Nvim-Switch-Buffer"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
