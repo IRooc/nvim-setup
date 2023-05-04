@@ -11,6 +11,8 @@ vim.keymap.set("n", "<leader>b", ':SwitchBuffer <cr>');
 vim.keymap.set("x", "<leader>p", "\"_dP")
 ---keymaps
 vim.keymap.set("i", "<C-z>", vim.cmd.undo);
+vim.keymap.set("i", "<C-v>", '<ESC>"+pa'); --paste from clipboard
+vim.keymap.set("v", "<C-c>", '"+yi'); --copy to clipboard
 vim.keymap.set("i", "<C-s>", vim.cmd.update);
 vim.keymap.set("n", "<C-s>", vim.cmd.update);
 vim.keymap.set("n", "<leader>t", "<C-w>w");
