@@ -1,5 +1,12 @@
 local lsp = require('lsp-zero').preset({})
 
+lsp.preset("recommended")
+
+lsp.ensure_installed({
+  'tsserver',
+  'eslint',
+})
+
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 

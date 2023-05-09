@@ -27,6 +27,12 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- jump between panes
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-l>", "<C-W>l")
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>o", ":buffers<CR>:buffer<Space>")
 vim.keymap.set("n", "<C-q>", ":bprevious<CR>:bdelete<Space>#<CR>")

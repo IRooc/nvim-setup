@@ -45,20 +45,29 @@ return require('packer').startup(function(use)
     }
 
   
-  --[===[
-  --no tree for now...
-  use {
-	  'nvim-tree/nvim-tree.lua',
-	  requires = {'nvim-tree/nvim-web-devicons'},
-	  config = function()
-		  require('nvim-web-devicons').setup();
-		  require('nvim-tree').setup {
-			  hijack_cursor = true,
-			  view = {
-				  width = 40
-			  }
-		  }
-	  end
-  }
-  --]===]
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+            -- disable netrw at the very start of your init.lua (strongly advised)
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+
+            require("nvim-tree").setup({
+                sort_by = "case_sensitive",
+                view = {
+                    width = 35,
+                },
+                renderer = {
+                    group_empty = true,
+                    highlight_git = true,
+                },
+                filters = {
+                    dotfiles = true,
+                },
+            })
+        end
+    }
+
+  
 end)
