@@ -19,3 +19,4 @@ vim.keymap.set("n", "<leader>t", "<C-w>w");
 vim.keymap.set("n", "<leader>sv", "<C-w>v");
 vim.keymap.set("n", "<leader>sh", "<C-w>s");
 vim.keymap.set("n", "<leader>e", "<:NvimTreeToggle<CR>");
+vim.keymap.set("n", "<leader>f", "<:NvimTreeFindFile<CR>");
