@@ -115,7 +115,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\n¿\2\0\0\6\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\a\0005\3\b\0=\3\t\0025\3\n\0005\4\f\0005\5\v\0=\5\r\4=\4\14\3=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\ffilters\rrenderer\nicons\tshow\1\0\0\1\0\5\rmodified\2\17folder_arrow\2\bgit\2\tfile\1\vfolder\2\1\0\2\16group_empty\2\18highlight_git\2\tview\1\0\1\nwidth\3#\1\0\1\fsort_by\19case_sensitive\nsetup\14nvim-tree\frequire\23loaded_netrwPlugin\17loaded_netrw\6g\bvim\0" },
+    config = { "\27LJ\2\n¿\2\0\0\6\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\a\0005\3\b\0=\3\t\0025\3\n\0005\4\f\0005\5\v\0=\5\r\4=\4\14\3=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\ffilters\rrenderer\nicons\tshow\1\0\0\1\0\5\tfile\1\vfolder\1\bgit\2\17folder_arrow\2\rmodified\2\1\0\2\18highlight_git\2\16group_empty\2\tview\1\0\1\nwidth\3#\1\0\1\fsort_by\19case_sensitive\nsetup\14nvim-tree\frequire\23loaded_netrwPlugin\17loaded_netrw\6g\bvim\0" },
     loaded = true,
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
@@ -150,22 +150,22 @@ _G.packer_plugins = {
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["typescript.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-ripgrep"] = {
-    loaded = true,
-    path = "C:\\Users\\robos\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-ripgrep",
-    url = "https://github.com/rluba/vim-ripgrep"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n¿\2\0\0\6\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\a\0005\3\b\0=\3\t\0025\3\n\0005\4\f\0005\5\v\0=\5\r\4=\4\14\3=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\ffilters\rrenderer\nicons\tshow\1\0\0\1\0\5\rmodified\2\17folder_arrow\2\bgit\2\tfile\1\vfolder\2\1\0\2\16group_empty\2\18highlight_git\2\tview\1\0\1\nwidth\3#\1\0\1\fsort_by\19case_sensitive\nsetup\14nvim-tree\frequire\23loaded_netrwPlugin\17loaded_netrw\6g\bvim\0", "config", "nvim-tree.lua")
+try_loadstring("\27LJ\2\n¿\2\0\0\6\0\17\0\0256\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\a\0005\3\b\0=\3\t\0025\3\n\0005\4\f\0005\5\v\0=\5\r\4=\4\14\3=\3\15\0024\3\0\0=\3\16\2B\0\2\1K\0\1\0\ffilters\rrenderer\nicons\tshow\1\0\0\1\0\5\tfile\1\vfolder\1\bgit\2\17folder_arrow\2\rmodified\2\1\0\2\18highlight_git\2\16group_empty\2\tview\1\0\1\nwidth\3#\1\0\1\fsort_by\19case_sensitive\nsetup\14nvim-tree\frequire\23loaded_netrwPlugin\17loaded_netrw\6g\bvim\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
 
 _G._packer.inside_compile = false

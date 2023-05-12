@@ -5,11 +5,11 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+	use('wbthomason/packer.nvim')
 
-	use 'rluba/vim-ripgrep'
+	--use('rluba/vim-ripgrep') -- we have this from treesitter...
 
-	use 'Yohannfra/Nvim-Switch-Buffer'
+	use('Yohannfra/Nvim-Switch-Buffer') -- small list of open buffers currently bound to leader-b
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' }, -- Required
 			{
-			                 -- Optional
+				-- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use('jose-elias-alvarez/typescript.nvim')
 
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -65,7 +66,7 @@ return require('packer').startup(function(use)
 					icons = {
 						show = {
 							file = false,
-							folder = true,
+							folder = false,
 							folder_arrow = true,
 							git = true,
 							modified = true,
