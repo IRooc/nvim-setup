@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>fs', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {});
 
 vim.keymap.set("n", "<leader>b", ':SwitchBuffer <cr>');
 -- greatest remap ever preserves the current copy buffer
@@ -21,5 +22,5 @@ vim.keymap.set("n", "<leader>t", "<C-w>w"); --switch buffer
 vim.keymap.set("n", "<leader>sv", "<C-w>v"); --split vertical
 vim.keymap.set("n", "<leader>sh", "<C-w>s"); --split horizontal
 
-vim.keymap.set("n", "<leader>e", "<:NvimTreeToggle<CR>");
-vim.keymap.set("n", "<leader>f", "<:NvimTreeFindFile<CR>");
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>");
+vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>");

@@ -62,13 +62,13 @@ return require('packer').startup(function(use)
 				},
 				renderer = {
 					group_empty = true,
-					highlight_git = true,
+					highlight_git = false,
 					icons = {
 						show = {
 							file = false,
 							folder = false,
 							folder_arrow = true,
-							git = true,
+							git = false,
 							modified = true,
 						}
 					}

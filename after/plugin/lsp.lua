@@ -23,8 +23,6 @@ cmp.setup({
 	}
 })
 
-
-
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
@@ -35,7 +33,6 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
 
 require('lspconfig').tsserver.setup({
 	root_dir = require('lspconfig.util').root_pattern('.git')
