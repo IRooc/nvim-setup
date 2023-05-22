@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use('wbthomason/packer.nvim')
 
-	--use('rluba/vim-ripgrep') -- we have this from treesitter...
+    use('rluba/vim-ripgrep')
 
 	use('Yohannfra/Nvim-Switch-Buffer') -- small list of open buffers currently bound to leader-b
 

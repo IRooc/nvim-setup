@@ -47,6 +47,12 @@ require('typescript').setup({
 			-- You can find more commands in the documentation:
 			-- https://github.com/jose-elias-alvarez/typescript.nvim#commands
 
+			-- disable inline error texts
+			vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+				vim.lsp.diagnostic.on_publish_diagnostics, {
+					virtual_text = false
+				}
+			)
 			vim.keymap.set('n', '<leader>ci', '<cmd>TypescriptAddMissingImports<cr>', { buffer = bufnr })
 		end
 	}

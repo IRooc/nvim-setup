@@ -17,6 +17,7 @@ vim.keymap.set("v", "<C-c>", '"+yi');      --copy to clipboard
 
 vim.keymap.set("i", "<C-s>", vim.cmd.update);
 vim.keymap.set("n", "<C-s>", vim.cmd.update);
+vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float);
 
 vim.keymap.set("n", "<leader>t", "<C-w>w"); --switch buffer
 vim.keymap.set("n", "<leader>sv", "<C-w>v"); --split vertical
