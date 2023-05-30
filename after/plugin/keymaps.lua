@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>fs', function()
 end)
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {});
+vim.keymap.set('n', '<leader>w', ':set wrap!<CR>');
 
 vim.keymap.set("n", "<leader>b", ':SwitchBuffer <cr>');
 -- greatest remap ever preserves the current copy buffer
