@@ -60,9 +60,6 @@ return require('packer').startup(function(use)
 				view = {
 					width = 35,
 				},
-				modified = {
-					enable = true,
-				},
 				renderer = {
 					group_empty = true,
 					highlight_git = false,
@@ -72,11 +69,9 @@ return require('packer').startup(function(use)
 							folder = false,
 							folder_arrow = true,
 							git = false,
-							modified = true,
+							modified = false,
 						}
 					}
-				},
-				filters = {
 				},
 				git = {
 					enable = false
