@@ -11,7 +11,9 @@ vim.keymap.set('n', '<leader>w', ':set wrap!<CR>');
 vim.keymap.set("n", "<leader>b", ':SwitchBuffer <cr>');
 -- greatest remap ever preserves the current copy buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
----keymaps
+-- remap C-v to leader-v because of paste....
+vim.keymap.set('n', '<leader>v', '<c-v>')
+---keymaps from windows
 vim.keymap.set("i", "<C-z>", vim.cmd.undo);
 vim.keymap.set("i", "<C-v>", '<ESC>"+pa'); --paste from clipboard
 vim.keymap.set("v", "<C-c>", '"+yi');      --copy to clipboard
