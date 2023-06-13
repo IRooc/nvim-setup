@@ -9,7 +9,8 @@ return require('packer').startup(function(use)
 
     use('rluba/vim-ripgrep')
 
-	use('Yohannfra/Nvim-Switch-Buffer') -- small list of open buffers currently bound to leader-b
+	use('IRooc/buffish.nvim')
+	-- use('Yohannfra/Nvim-Switch-Buffer') -- small list of open buffers currently bound to leader-b
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -19,6 +20,11 @@ return require('packer').startup(function(use)
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 
 	vim.cmd('colorscheme rose-pine')
+
+	use {
+	  'nvim-lualine/lualine.nvim',
+	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	}
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('tpope/vim-fugitive')
