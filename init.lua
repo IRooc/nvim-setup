@@ -341,6 +341,12 @@ vim.keymap.set("n", "<C-s>", vim.cmd.update)
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- jump between panes
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-l>", "<C-W>l")
+
 -- delete buffer and show previous
 vim.keymap.set("n", "<C-q>", ":bprevious<CR>:bdelete<Space>#<CR>")
 
@@ -463,7 +469,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<leader>cd', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
