@@ -204,7 +204,7 @@ require('lazy').setup({
   --    up-to-date with whatever is in the kickstart repo.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
---  { import = 'custom.plugins' },
+  --  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -357,6 +357,9 @@ vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+vim.keymap.set('n', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
+vim.keymap.set('i', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
 
 ---CUSTOM
 ---CUSTOM
