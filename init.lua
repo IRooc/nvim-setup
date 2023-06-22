@@ -577,5 +577,10 @@ cmp.setup {
   },
 }
 
+
+
+vim.cmd([[highlight DiagnosticVirtualTextWarn guifg=#7B582A]])
+vim.cmd([[highlight DiagnosticVirtualTextError guifg=#7F394C]])
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
