@@ -205,6 +205,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   --  { import = 'custom.plugins' },
+  {'IRooc/buffish.nvim'}
 }, {})
 
 -- [[ Setting options ]]
@@ -315,8 +316,8 @@ vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Start [G]it [S]tage' })
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
 local function getParentPath(path)
-  pattern1 = "^(.+)//"
-  pattern2 = "^(.+)\\"
+  local pattern1 = "^(.+)//"
+  local pattern2 = "^(.+)\\"
 
   if (string.match(path, pattern1) == nil) then
     return string.match(path, pattern2)
@@ -361,6 +362,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 vim.keymap.set('n', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
 vim.keymap.set('i', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
 
+vim.keymap.set("n", "<leader>b", ':Buffish<cr>');
 ---CUSTOM
 ---CUSTOM
 ---CUSTOM
