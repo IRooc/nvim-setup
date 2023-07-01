@@ -205,7 +205,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   --  { import = 'custom.plugins' },
-  {'IRooc/buffish.nvim'}
+  { 'IRooc/buffish.nvim' }
 }, {})
 
 -- [[ Setting options ]]
@@ -312,8 +312,11 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 ---CUSTOM
 ---CUSTOM
 ---CUSTOM
+vim.keymap.set('n', '<leader>w', ':set wrap!<CR>', { desc = 'Toggle [W[rap' });
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Start [G]it [S]tage' })
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('i', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('v', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
 local function getParentPath(path)
   local pattern1 = "^(.+)//"
