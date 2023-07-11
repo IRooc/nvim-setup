@@ -41,9 +41,6 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.netrw_banner = 0 -- Hide banner
-vim.g.netrw_liststyle = 3 -- Tree-style view
-vim.g.netrw_keepdir = 0
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -174,6 +171,11 @@ require('lazy').setup({
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -308,6 +310,7 @@ vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { des
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 
@@ -318,9 +321,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 ---CUSTOM
 vim.keymap.set('n', '<leader>w', ':set wrap!<CR>', { desc = 'Toggle [W[rap' });
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Start [G]it [S]tage' })
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('i', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('v', '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
 local function getParentPath(path)
   local pattern1 = "^(.+)//"
@@ -333,22 +334,16 @@ local function getParentPath(path)
   end
 end
 
-vim.keymap.set('n', '<leader>sc', function()
-  local fldr = vim.fn.expand("%:p")
-  fldr = getParentPath(fldr)
-  require('telescope.builtin').find_files({
-    search_dirs = { fldr }
-  })
-end, { desc = '[S]earch [C]urrent folder' })
-
 --save ctrl s
-vim.keymap.set("i", "<C-s>", vim.cmd.update)
-vim.keymap.set("n", "<C-s>", vim.cmd.update)
+vim.keymap.set({ 'n', 'v', 'i' }, "<C-s>", vim.cmd.update)
 
 --up down to center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+vim.keymap.set("n", "<PageDown>", "<C-d>zz")
+vim.keymap.set("n", "<PageUp>", "<C-u>zz")
+--
 -- jump between panes
 vim.keymap.set("n", "<C-h>", "<C-W>h")
 vim.keymap.set("n", "<C-j>", "<C-W>j")
@@ -366,10 +361,17 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
-vim.keymap.set('n', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
-vim.keymap.set('i', "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
+vim.keymap.set({ 'n', 'i' }, "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
 
 vim.keymap.set("n", "<leader>b", ':Buffish<cr>');
+-- greatest remap ever preserves the current copy buffer
+vim.keymap.set("x", "<leader>p", "\"_dP")
+---keymaps from windows
+vim.keymap.set("i", "<C-z>", vim.cmd.undo);
+vim.keymap.set("i", "<C-v>", '<ESC>"+pa');  --paste from clipboard
+vim.keymap.set("v", "<C-c>", '"+yi');       --copy to clipboard
+vim.keymap.set("n", "<leader>t", "<C-w>w"); --switch buffer
+
 ---CUSTOM
 ---CUSTOM
 ---CUSTOM
@@ -389,10 +391,10 @@ require('nvim-treesitter.configs').setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<M-space>',
+      init_selection = "gnn",       -- set to `false` to disable one of the mappings
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
     },
   },
   textobjects = {
@@ -589,6 +591,30 @@ cmp.setup {
   },
 }
 
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+  },
+}
+
+require("telescope").load_extension "file_browser"
+vim.api.nvim_set_keymap("n", "<leader>sb", ":Telescope file_browser<CR>", { noremap = true })
+
+-- open file_browser with the path of the current buffer
+vim.api.nvim_set_keymap("n", "<leader>sc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true })
 
 
 vim.cmd([[highlight DiagnosticVirtualTextWarn guifg=#7B582A]])
