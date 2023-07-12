@@ -341,9 +341,6 @@ vim.keymap.set({ 'n', 'v', 'i' }, "<C-s>", vim.cmd.update)
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-vim.keymap.set("n", "<PageDown>", "<C-d>zz")
-vim.keymap.set("n", "<PageUp>", "<C-u>zz")
---
 -- jump between panes
 vim.keymap.set("n", "<C-h>", "<C-W>h")
 vim.keymap.set("n", "<C-j>", "<C-W>j")
@@ -371,6 +368,7 @@ vim.keymap.set("i", "<C-z>", vim.cmd.undo);
 vim.keymap.set("i", "<C-v>", '<ESC>"+pa');  --paste from clipboard
 vim.keymap.set("v", "<C-c>", '"+yi');       --copy to clipboard
 vim.keymap.set("n", "<leader>t", "<C-w>w"); --switch buffer
+vim.keymap.set("n", "<leader>sc", ":Ex %:p:h<cr>"); -- open netrw in current folder
 
 ---CUSTOM
 ---CUSTOM
@@ -590,32 +588,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-require("telescope").setup {
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    },
-  },
-}
-
-require("telescope").load_extension "file_browser"
-vim.api.nvim_set_keymap("n", "<leader>sb", ":Telescope file_browser<CR>", { noremap = true })
-
--- open file_browser with the path of the current buffer
-vim.api.nvim_set_keymap("n", "<leader>sc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true })
-
 
 vim.cmd([[highlight DiagnosticVirtualTextWarn guifg=#7B582A]])
 vim.cmd([[highlight DiagnosticVirtualTextError guifg=#7F394C]])
