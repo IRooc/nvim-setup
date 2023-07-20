@@ -321,18 +321,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 ---CUSTOM
 vim.keymap.set('n', '<leader>w', ':set wrap!<CR>', { desc = 'Toggle [W[rap' });
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Start [G]it [S]tage' })
-vim.keymap.set({ 'n', 'v', 'i' }, '<C-p>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-
-local function getParentPath(path)
-  local pattern1 = "^(.+)//"
-  local pattern2 = "^(.+)\\"
-
-  if (string.match(path, pattern1) == nil) then
-    return string.match(path, pattern2)
-  else
-    return string.match(path, pattern1)
-  end
-end
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 
 --save ctrl s
 vim.keymap.set({ 'n', 'v', 'i' }, "<C-s>", vim.cmd.update)
