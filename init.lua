@@ -253,6 +253,10 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 vim.keymap.set({ 'n', 'i' }, "<F3>", vim.lsp.buf.format, { desc = 'Format document' })
 
 vim.keymap.set("n", "<leader>b", ':Buffish<cr>');
+
+-- Replace word under cursor across entire buffer
+vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- greatest remap ever preserves the current copy buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("v", "p", "\"_dP")
