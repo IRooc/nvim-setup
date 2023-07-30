@@ -180,12 +180,16 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+local actions = require("telescope.actions")
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+      },
+      n = {
+        ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
       },
     },
   },
@@ -226,6 +230,8 @@ vim.keymap.set({ 'n', 'v', 'i' }, "<C-s>", vim.cmd.update)
 --up down to center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- jump between panes
 vim.keymap.set("n", "<C-h>", "<C-W>h")
@@ -249,6 +255,8 @@ vim.keymap.set({ 'n', 'i' }, "<F3>", vim.lsp.buf.format, { desc = 'Format docume
 vim.keymap.set("n", "<leader>b", ':Buffish<cr>');
 -- greatest remap ever preserves the current copy buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("v", "p", "\"_dP")
+
 ---keymaps from windows
 vim.keymap.set("i", "<C-z>", vim.cmd.undo);
 vim.keymap.set("i", "<C-v>", '<ESC>"+pa');          --paste from clipboard
@@ -474,6 +482,8 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+vim.cmd.packadd('cfilter')
 
 vim.cmd([[highlight DiagnosticVirtualTextWarn guifg=#7B582A]])
 vim.cmd([[highlight DiagnosticVirtualTextError guifg=#7F394C]])
