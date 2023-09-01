@@ -122,7 +122,8 @@ require('lazy').setup({
   },
 
   -- buffish quick alt-tab setup
-  { 'IRooc/buffish.nvim' }
+  { 'IRooc/buffish.nvim' },
+  { 'mg979/vim-visual-multi', branch = 'master' }
 }, {})
 
 -- [[ Setting options ]]
@@ -220,12 +221,13 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 ---CUSTOM
 ---CUSTOM
 ---CUSTOM
-vim.keymap.set('n', '<leader>w', ':set wrap!<CR>', { desc = 'Toggle [W[rap' });
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = '[T]oggle [W]rap' });
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Start [G]it [S]tage' })
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 
 --save ctrl s
 vim.keymap.set({ 'n', 'v', 'i' }, "<C-s>", vim.cmd.update)
+vim.keymap.set('n', '<leader>w', vim.cmd.update);
 
 --up down to center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -356,7 +358,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>cr', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap("<leader>cf", vim.lsp.buf.format, '[C]ode [F]ormat')
 
