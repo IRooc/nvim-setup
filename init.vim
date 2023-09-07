@@ -67,7 +67,10 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 set timeoutlen=500
 set undofile
-set undodir=~/.vim
+set undodir=~/.vim/vim
+if has('nvim')
+set undodir=~/.vim/nvim
+endif
 set clipboard=unnamed
 set backspace=indent,eol,start
 set termguicolors
@@ -178,6 +181,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|obj\|bin'
 " basic airline config
 let g:airline_symbols = get(g:, 'airline_symbols', {})
 let g:airline_symbols.colnr = ' '
+
+let g:airline#extensions#whitespace#enabled = 0
 
 " riggrep binary
 " let g:rg_binary = 'c:/rc/Tools/ripgrep/rg.exe'
