@@ -65,6 +65,10 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+set visualbell
+set t_vb=
+set belloff=all
+
 set timeoutlen=500
 set undofile
 set undodir=~/.vim/vim
@@ -103,6 +107,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rhysd/vim-clang-format'
 
 	Plug 'liuchengxu/vim-which-key'
+	
+	Plug 'github/copilot.vim'
 
 	Plug 'rose-pine/vim'
 
@@ -125,13 +131,15 @@ let g:which_key_map['s'] = { 'name' : '+Explore' }
 
 nmap <leader>w :w<cr>
 let g:which_key_map['w'] = 'Write file'
-nmap <leader>tw :set warp!<cr>
-let g:which_key_map['t']['w'] = 'Toggle Wrap'
+
+nmap <leader>tw :set wrap!<cr>
 nmap <leader>ch :noh<cr>
 let g:which_key_map['c']['h'] = 'Clear Highlight'
-nmap <leader>gs :Git<cr>
-let g:which_key_map['g']['s'] = 'Git Stage'
 
+nmap <leader>gs :Git<cr>
+let g:which_key_map['g']['s'] = 'Stage'
+
+" move screen to focus center on up down and next previous
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 nmap n nzzzv
