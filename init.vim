@@ -147,14 +147,14 @@ nmap N Nzzzv
 nmap n nzzzv
 nmap N Nzzzv
 
+" when you hit jj in insert mode esc and do jj instead
+imap jj <Esc>jj
+
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-" yy to exit insertmode
-imap yy <esc>
 
 " open netrw in current file folder
 nmap <leader>sc :Ex %:p:h<cr>
