@@ -135,6 +135,8 @@ let g:which_key_map['w'] = 'Write file'
 nmap <leader>tw :set wrap!<cr>
 nmap <leader>ch :noh<cr>
 let g:which_key_map['c']['h'] = 'Clear Highlight'
+nmap <leader>cd :e ++ff=dos<cr>
+let g:which_key_map['c']['d'] = 'Clear to dos'
 
 nmap <leader>gs :Git<cr>
 let g:which_key_map['g']['s'] = 'Stage'
